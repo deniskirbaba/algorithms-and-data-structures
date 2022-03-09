@@ -68,3 +68,4 @@ int main() {
 ```
 
 ###### Подтверждение выполнения:
+![image](https://user-images.githubusercontent.com/75897943/157514162-5527c4a0-8a0f-4643-a499-3f16f064658f.png)
