@@ -76,4 +76,4 @@ int main() {
 
 ###### Подтверждение выполнения:
 
-![timus_screen](C:\denFiles\git\algorithms-and-data-structures\1005. Bunch of stones\timus_screen)
+![timus_screen](https://user-images.githubusercontent.com/75897943/157456013-d5eadabb-66ee-447f-a4ba-bdfbe6045c95.png)
