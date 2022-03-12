@@ -151,3 +151,4 @@ int main() {
 ```
 
 ###### Подтверждение выполнения:
+![image](https://user-images.githubusercontent.com/75897943/158027530-f5cea44b-6a21-49db-a1fe-68ebf5ef1708.png)
