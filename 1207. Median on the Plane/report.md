@@ -15,13 +15,13 @@
 
 > Выведите номера выбранных точек
 
-| Исходные данные      | Результат |
-| -------------------- | --------- |
-| `4 0 0 1 0 0 1 1 1 ` | `1 4`     |
-
-###### Интерпретация задачи:
-
->  Выбрать две точки так, что прямая линия, проходящая через них, делит множество точек на две части одинакового размера.
+| Исходные данные | Результат |
+|-----------------|-----------|
+| `4   `          | `1 4`     |
+| `0 0 `          |           |
+| `1 0  `         |           |
+| `0 1 `          |           |
+| `1 1 `          |           |
 
 ###### Описание алгоритма:
 
@@ -33,28 +33,47 @@
 #include <iostream>
 #include <vector>
 #include <cmath>
-using namespace std;
-#define PI 3.141592653589793238462643383279502884197169399375105820974
 
-struct Point {
-    int x, y;
-    short number;
+using namespace std;
+
+// a structure for storing the coordinates of a point, its ordinal number,
+// the angle of a straight line passing through this point, as well as the method for calculating the angle
+struct Dot {
+    // coordinates
+    int x;
+    int y;
+
+    // ordinal number
+    int id;
+
+    // angle of a straight line
     double angle;
-    void calcAngle(Point zero) {
-        if (zero.x == this->x) this->angle = PI/2; // Если dY == 0;
-        else if (zero.y == this->y) this->angle = 0; // Если dX == 0;
-        else this->angle = atan((double)(this->y - zero.y)/(double)(this->x - zero.x)); // ПРосто рассчет угла
-        if (this->angle < 0) this->angle += 2 * PI; // Если угол отрицательный - вносим в диапазон положительных чисел
+
+    // method for calculating the angle
+    void calculateAngle(Dot minDot) {
+
+        // if on one vertical line
+        if (minDot.x == this->x) this->angle = M_PI/2;
+
+        // if on one horizontal line
+        else if (minDot.y == this->y) this->angle = 0;
+
+        // calculation in other cases
+        else this->angle = atan((double)(this->y - minDot.y)/(double)(this->x - minDot.x));
+
+        // convert the angle to a range of positive numbers
+        if (this->angle < 0) this->angle += 2 * M_PI;
     }
 };
 
-void swap(Point* a, Point* b) {
-	Point t = *a;
-	*a = *b;
-	*b = t;
+// just swapping dots function
+void swap(Dot* first, Dot* second) {
+    Dot buffer = *first;
+    *first = *second;
+    *second = buffer;
 }
 
-void quickSort(vector<Point> &vec, int left, int right) {
+void quickSort(vector<Dot> &vec, int left, int right) {
     int i = left, j = right;
     double pivot = vec[(left + right) / 2].angle;
     while(i <= j) {
@@ -70,27 +89,45 @@ void quickSort(vector<Point> &vec, int left, int right) {
 }
 
 int main() {
-    short n; cin >> n; // Считывание количества точек
-    vector<Point> points(n); // Массив точек
-    pair<int, int> minPoint = make_pair(2000000, 0); // Минимальная точка по X или Y
-    
-    for (short i = 0; i < n; i++) {
-        cin >> points[i].x >> points[i].y; // Заполняем массив точек
-        points[i].number = i + 1; // Задаем номер каждой точке в соответствии с порядком считывания
-        if (points[i].y < minPoint.first or points[i].y == minPoint.first and points[i].x < points[minPoint.second].x) {
-            minPoint.first = points[i].y;
-            minPoint.second = i;
-        } // Выбираем минимальную по x или y точку
+
+    // reading the number of points
+    int n;
+    cin >> n;
+
+    // array containing points
+    vector<Dot> dots(n);
+
+    // minimum y dot
+    Dot minDot = {1000001, 1000001, 0};
+
+    // reading dots into array
+    for (int i = 0; i < n; i++) {
+        // saving coordinates
+        cin >> dots[i].x >> dots[i].y;
+        // saving id
+        dots[i].id = i + 1;
+
+        // choose the minimum y point
+        if (dots[i].y < minDot.y or dots[i].y == minDot.y and dots[i].x < dots[minDot.id].x) {
+            minDot.y = dots[i].y;
+            minDot.id = i;
+        }
     }
-    
-    swap(&points[0], &points[minPoint.second]); // Ставим минимальную точку в начало
-    for (int i = 1; i < n; i++) points[i].calcAngle(points[0]); // Рассчитываем угол относительно начальной точки
-    quickSort(points, 1, n - 1); // Сортируем по возрастанию угла
-    cout << points[0].number << " " << points[n / 2].number << endl; // Искомые точки - минимальная и средняя по углу
+
+    // push min dot at the start of array
+    swap(&dots[0], &dots[minDot.id]);
+
+    // calculate angles relative to the min (first) dot
+    for (int i = 1; i < n; i++) dots[i].calculateAngle(dots[0]);
+
+    // sorting by ascending angle
+    quickSort(dots, 1, n - 1);
+
+    // result output - min dot and mean by angle dot
+    cout << dots[0].id << " " << dots[n / 2].id << endl;
+
     return 0;
 }
 ```
 
 ###### Подтверждение выполнения:
-
-![image-20220214040150940](C:\Users\User\AppData\Roaming\Typora\typora-user-images\image-20220214040150940.png)
