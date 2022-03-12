@@ -4,6 +4,8 @@
 
 using namespace std;
 
+#define M_PI 3.14159265358979323846
+
 // a structure for storing the coordinates of a point, its ordinal number,
 // the angle of a straight line passing through this point, as well as the method for calculating the angle
 struct Dot {
@@ -41,19 +43,25 @@ void swap(Dot* first, Dot* second) {
     *second = buffer;
 }
 
-void quickSort(vector<Dot> &vec, int left, int right) {
+// my implementation of quick sort
+void quickSort(vector<Dot> &dots, int left, int right) {
+
     int i = left, j = right;
-    double pivot = vec[(left + right) / 2].angle;
+
+    // pivot element
+    double pivot = dots[(left + right) / 2].angle;
+
+    // main loop
     while(i <= j) {
-        while (vec[i].angle < pivot) i++;
-        while (vec[j].angle > pivot) j--;
+        while (dots[i].angle < pivot) i++;
+        while (dots[j].angle > pivot) j--;
         if (i > j) break;
-        swap(&vec[i], &vec[j]);
+        swap(&dots[i], &dots[j]);
         i++;
         j--;
     }
-    if (left < j) quickSort(vec, left, j);
-    if (i < right) quickSort(vec, i, right);
+    if (left < j) quickSort(dots, left, j);
+    if (i < right) quickSort(dots, i, right);
 }
 
 int main() {
