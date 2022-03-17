@@ -113,3 +113,4 @@ int main() {
 ```
 
 ###### Подтверждение выполнения:
+![image](https://user-images.githubusercontent.com/75897943/158801846-9848cf44-5036-4f84-8cdd-106ee26f770b.png)
