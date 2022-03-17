@@ -122,3 +122,4 @@ int main() {
 ```
 
 ###### Подтверждение выполнения:
+![timus_screen.png](timus_screen.png)
