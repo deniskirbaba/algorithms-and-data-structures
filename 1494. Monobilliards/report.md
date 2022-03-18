@@ -87,5 +87,4 @@ int main() {
 ```
 
 ###### Подтверждение выполнения:
-
 ![timus_screen](timus_screen.png)
