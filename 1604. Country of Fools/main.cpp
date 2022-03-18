@@ -3,44 +3,64 @@
 
 using namespace std;
 
+// function to search for the index of the sign with the largest number excluding some index
+int findMaxIndexExcept(vector<int> &roadSigns, int len, int exclusiveIndex) {
+
+    int maxSign = 0;
+    int result = -1;
+
+    for (int i = 0; i < len; i++) {
+        if (i != exclusiveIndex && roadSigns[i] > maxSign) {
+            maxSign = roadSigns[i];
+            result = i;
+        }
+    }
+
+    return result;
+}
+
 int main() {
 
     // data input
 
-    // number of different road signs
-    int k;
-    cin >> k;
+    // number of different types of road signs
+    int typesOfSigns;
+    cin >> typesOfSigns;
 
     // dynamic array, containing signs
-    vector<short> roadSigns(k);
+    vector<int> roadSigns(typesOfSigns);
 
     // total number of road signs
     int total = 0;
 
     // reading sings restrictions number in array
-    for (int i = 0; i < k; i++) {
+    for (int i = 0; i < typesOfSigns; i++) {
         cin >> roadSigns[i];
         total += roadSigns[i];
     }
 
-    short max_index = 0, last_index = 0;
+    // previous used road sign index
+    int prevSignIndex = -1;
+    // the index of the max sign number
+    int maxSignIndex;
+
     // main loop
-    while (total) {
-        max_index = 0;
-        if (last_index == 0) max_index = 1; // Костыль
+    while (total) { // until all signs are used
 
-        for (int j = 0; j < k; j++)
-            if (last_index != j && roadSigns[j] >= roadSigns[max_index])
-                max_index = j; // Находим новый индекс с максимальным значением
+        // find max sign index, exclude the previous one
+        maxSignIndex = findMaxIndexExcept(roadSigns, typesOfSigns, prevSignIndex);
 
-        if (roadSigns[max_index] == 0) max_index = last_index; // Если тут пусто, идем по новой
-        roadSigns[max_index] -= 1; // Убираем использованный знак
-        last_index = max_index; // Исключаем повторения
+        // if not other signs, then use the previous
+        if (maxSignIndex == -1) maxSignIndex = prevSignIndex;
+
+        roadSigns[maxSignIndex] -= 1;
+        prevSignIndex = maxSignIndex;
 
         // result output
-        cout << max_index + 1 << ' ';
+        cout << maxSignIndex + 1 << ' ';
 
         total--;
     }
+
     return 0;
 }
