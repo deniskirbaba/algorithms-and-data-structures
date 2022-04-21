@@ -59,4 +59,6 @@ int main() {
 ```
 
 ###### Подтверждение выполнения:
-
+<p align="center">
+  <img width="1000" src="https://github.com/pivp/algorithms-and-data-structures/blob/27f3f35fdfc10c19d1d0636e0f4901f78b195231/1521.%20War%20Games%202/timus.png">
+</p>
