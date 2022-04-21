@@ -101,4 +101,6 @@ int main() {
 ```
 
 ###### Подтверждение выполнения:
-
+<p align="center">
+  <img width="1000" src="https://github.com/pivp/algorithms-and-data-structures/blob/c1b47d724ac8c2fa3ddb3ebf16ac7394164d5b25/1067.%20Disk%20Tree/timus.png">
+</p>
