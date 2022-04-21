@@ -41,7 +41,10 @@
 > Для представления телеграфа отдельного бойца используется структура *telegraphNUmber*, в которой содержатся идентификатор, номер телеграфа, массив с идентификаторами контактов и временем пересылки сообщения.  
 > В начале происходит считывание информации и заполнение исходной информацией массива *soldierBook*.  
 > Для поиска минимального пути от первого до последнего бойца используется алгоритм Дейкстры.  
-> 
+<p align="center">
+  <img width="800" src="https://github.com/pivp/algorithms-and-data-structures/blob/5b6b76fe5172b6c49c58fe773effe22673863f7e/1806.%20Mobile%20Telegraphs/dejstra.png">
+  <h6 align="center"><em>Описание алгоритма Дейкстры</em></h6>
+</p>
 
 ###### Реализация:
 
@@ -228,4 +231,6 @@ int main() {
 ```
 
 ###### Подтверждение выполнения:
-
+<p align="center">
+  <img width="1000" src="https://github.com/pivp/algorithms-and-data-structures/blob/5b6b76fe5172b6c49c58fe773effe22673863f7e/1806.%20Mobile%20Telegraphs/timus.png">
+</p>
