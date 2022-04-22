@@ -86,3 +86,6 @@ int main() {
 ```
 
 ###### Подтверждение выполнения:
+<p align="center">
+  <img width="1000" src="https://github.com/pivp/algorithms-and-data-structures/blob/ea70470389af8eca0f7915b345e8069eee3022cf/1628.%20White%20Streaks/timus.png">
+</p>
