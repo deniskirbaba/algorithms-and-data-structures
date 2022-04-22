@@ -91,3 +91,7 @@ int main()
 
 ###### Подтверждение выполнения:
 
+###### Подтверждение выполнения:
+<p align="center">
+  <img width="1000" src="https://github.com/pivp/algorithms-and-data-structures/blob/306ddba087ea0bc1f27520b2a8973951cad0346b/1162.%20Currency%20Exchange/timus.png">
+</p>
