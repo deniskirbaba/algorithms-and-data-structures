@@ -15,7 +15,9 @@
 
 > В каждой строке должно содержаться название города и, через пробел, количество дней, в течение которых этот город лидировал по общему состоянию миллиардеров, находящихся в нём. Если таких дней не было, пропустите этот город. Города должны быть отсортированы по алфавиту (используйте обычный порядок символов: ABC...Zabc...z).
 
-
+<p align="center">
+  <img width="700" src="https://github.com/pivp/algorithms-and-data-structures/blob/6980bd2471ec8ba8078c7b5d4a407ee2de3996f0/1650.%20Billionaires/example.png">
+</p>
 
 ###### Описание алгоритма:
 
@@ -123,3 +125,6 @@ int main()
 ```
 
 ###### Подтверждение выполнения:
+<p align="center">
+  <img width="1000" src="https://github.com/pivp/algorithms-and-data-structures/blob/6980bd2471ec8ba8078c7b5d4a407ee2de3996f0/1650.%20Billionaires/timus.png">
+</p>
