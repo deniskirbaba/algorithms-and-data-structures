@@ -85,3 +85,8 @@ int main() {
     return 0;
 }
 ```
+
+###### Подтверждение выполнения:
+<p align="center">
+  <img width="1000" src="https://github.com/pivp/algorithms-and-data-structures/blob/177ad87bff9e692c74910c8f4bb461515855d978/1450.%20Russian%20Pipelines/timus.png">
+</p>
